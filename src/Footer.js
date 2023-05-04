@@ -1,10 +1,12 @@
 import React from "react";
 
-function Footer() {
-  return (
-  <>
-  </>
-  );
+class Footer extends React.Component{
+    render(){
+        return (
+            <>
+                <p>Lacey W.</p>
+            </>
+        );
+    }
 }
-
 export default Footer;
