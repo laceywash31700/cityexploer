@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
+import Error from "./Error";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 
@@ -12,7 +13,8 @@ class App extends React.Component {
     this.state = {
       display: false,
       city: '',
-      locationData: null
+      locationData: null,
+      error: null
     }
   }
 
@@ -24,12 +26,22 @@ class App extends React.Component {
 
   displayResults = async (e) => {
     e.preventDefault();
-    let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONS}&q=${this.state.city}&format=json`
-    const displayData = await axios.get(url)
-    this.setState({
-      display: true,
-      locationData: displayData.data[0]
-    }, () => console.log(this.state.locationData))
+    try {
+      let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONS}&q=${this.state.city}&format=json`
+      const displayData = await axios.get(url)
+      this.setState({
+        display: true,
+        locationData: displayData.data[0],
+        error: null
+      });
+    } catch (error) {
+      console.error(error);
+      this.setState({
+        display: false,
+        locationData: null,
+        error: error
+      });
+    }
   }
 
   render() {
@@ -48,7 +60,12 @@ class App extends React.Component {
               </Container>
             </Form.Group>
           </Form>
-          {this.state.display && <Main locationData={this.state.locationData} />}
+          {
+          this.state.display
+          ? <Main locationData={this.state.locationData} />
+          : this.state.error && !this.state.display 
+          ? <Error error={this.state.error}/> 
+          : null}
           <Footer />
         </Container>
       </>
