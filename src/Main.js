@@ -10,14 +10,20 @@ class Main extends React.Component {
             <>
                     <Container>
                         <Col>
-                            <Map locationData = {this.props.locationData}/>
+                            <Map 
+                               locationData = {this.props.locationData}
+                               weather={this.props.weather}
+                               />
                         </Col>
                         <Row>
                             <Col>
                                 <Restaurants locationData ={this.props.locationData}/>
                             </Col>
                             <Col>
-                                <Movies locationData ={this.props.locationData}/>
+                                <Movies 
+                                locationData ={this.props.locationData}
+                                movies={this.props.movies}
+                                />
                             </Col>
                         </Row>
                     </Container>
