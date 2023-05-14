@@ -4,10 +4,10 @@ class Error extends React.Component {
     render() {
         return (
             <>
-                <h2>{this.props.error1.name}</h2>
-                <p>{this.props.error1.message}</p>
-                <p>{this.props.error2.message}</p>
-                <p>{this.props.error3.message}</p>
+                <h2>Oh no! Something went wrong.</h2>
+                <p>{this.props.err1}</p>
+                <p>{this.props.err2}</p>
+                <p>{this.props.err3}</p>
             </>
         );
     }

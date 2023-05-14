@@ -4,7 +4,7 @@ class Restaurants extends React.Component {
     render() {
         return (
             <>
-                <p>Restaurants</p>
+                <h3>Restaurants</h3>
             </>
         );
     }
