@@ -25,8 +25,8 @@ class Main extends React.Component {
             key ={idx}
             title = {movie.title}
             description = {movie.description}
-            avg_like = {movie.avg_like}
-            total_like = {movie.total_like}
+            avg = {movie.avg}
+            total_likes = {movie.total_likes}
             image = {movie.image}
             popularity = {movie.popularity}
             released = {movie.released}

@@ -3,23 +3,29 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 class Movies extends React.Component {
+  starValue = (avg) => {
+    let numberOfStars = Math.floor(avg); 
+    const star = '⭐';
+    let output = ''
+   for(let i=0; i < numberOfStars; i++){
+      output += star
+   }
+   return output
+  }
     render() {
-
+      const {avg,description,image,popularity,released,title,total_likes} = this.props;
         return (
             <>
                  <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+      <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${image}`} alt={title} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{description} </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+        <ListGroup.Item>{``}{this.starValue(avg)}</ListGroup.Item>
+        <ListGroup.Item>{total_likes}</ListGroup.Item>
+        <ListGroup.Item>{released}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
         <Card.Link href="#">Card Link</Card.Link>
