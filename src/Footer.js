@@ -5,6 +5,7 @@ class Footer extends React.Component{
         return (
             <>
                 <p>Lacey W.</p>
+                
             </>
         );
     }

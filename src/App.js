@@ -121,6 +121,7 @@ class App extends React.Component {
           </Form>
           {(location && weather) && display
             ? <Main
+            timeWeatherReq = {this.props.timeWeatherReq}
               location={location}
               weather={weather}
               movies={movies}
@@ -132,7 +133,7 @@ class App extends React.Component {
                 err2={err2}
                 err3={err3} />
               : null}
-          <Footer />
+          <Footer/>
         </Container>
       </>
     );

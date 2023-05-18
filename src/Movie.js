@@ -13,7 +13,7 @@ class Movies extends React.Component {
    return output
   }
     render() {
-      const {avg,description,image,popularity,released,title,total_likes} = this.props;
+      const {avg,description,image,released,title,total_likes} = this.props;
         return (
             <>
                  <Card style={{ width: '18rem' }}>
@@ -23,7 +23,7 @@ class Movies extends React.Component {
         <Card.Text>{description} </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>{``}{this.starValue(avg)}</ListGroup.Item>
+        <ListGroup.Item>{this.starValue(avg)}</ListGroup.Item>
         <ListGroup.Item>{total_likes}</ListGroup.Item>
         <ListGroup.Item>{released}</ListGroup.Item>
       </ListGroup>
