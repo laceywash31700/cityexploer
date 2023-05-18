@@ -8,8 +8,9 @@ import { Container, Row, Col } from "react-bootstrap";
 
 class Main extends React.Component {
     render() {
-        
-        const forCast = this.props.weather.map((day,idx) =>
+        const {location,weather,movies,city} = this.props
+
+        const foreCast = weather.data.map((day,idx) =>
         <Weather
         key = {idx}
         idx = {idx}
@@ -20,7 +21,8 @@ class Main extends React.Component {
         icon = {day.weather.icon}
         description = {day.weather.description}
         />)
-        const movies = this.props.movies.map((movie,idx) => 
+        
+        const moviesData = movies.data.map((movie,idx) => 
         <Movies
             key ={idx}
             title = {movie.title}
@@ -28,7 +30,6 @@ class Main extends React.Component {
             avg = {movie.avg}
             total_likes = {movie.total_likes}
             image = {movie.image}
-            popularity = {movie.popularity}
             released = {movie.released}
         />
         )
@@ -37,20 +38,20 @@ class Main extends React.Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Map location={this.props.location} />
+                            <Map location={location} />
                         </Col>
                         <Col>
-                        <h3>ForCast</h3>
-                        {forCast}
+                        <h3>Weekly Forecast</h3>
+                        {foreCast}
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <Restaurants />
+                            <Restaurants city={city}/>
                         </Col>
                         <Col>
                         <h3>Movies</h3>
-                        {movies}
+                        {moviesData}
                         </Col>
                     </Row>
                 </Container>

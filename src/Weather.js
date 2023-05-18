@@ -15,12 +15,12 @@ class Weather extends React.Component {
                 <Accordion >
                     <Accordion.Item eventKey={idx}>
                         <Accordion.Header>
-                            <Row><img src={require(`./Img/${icon}.png`)} alt={description} /> {currentTemp}{DEGREES}F {dateTime}</Row>
+                            <Row><img src={require(`./Img/${icon}.png`)} alt={description} /> {currentTemp}{DEGREES}C {dateTime}</Row>
                         </Accordion.Header>
                         <Accordion.Body>
                             <Row>
-                                <Col>High of: {highTemp}{DEGREES}F</Col>
-                                <Col>Low of: {lowTemp}{DEGREES}F</Col>
+                                <Col>High of: {highTemp}{DEGREES}C</Col>
+                                <Col>Low of: {lowTemp}{DEGREES}C</Col>
                             </Row>
                             <Row>
                                 <Col>{description}</Col>
